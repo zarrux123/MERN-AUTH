@@ -11,9 +11,7 @@ import ResetPasswordPage from "./pages/ResetPasswordPage";
 import LoadingSpinner from "./components/LoadingSpinner";
 
 import { Toaster } from "react-hot-toast";
-import { useAuthStore } from "./store/authStore";
 import { useEffect } from "react";
-
 
 const ProtectedRoute = ({ children }) => {
 	const { isAuthenticated, user } = useAuthStore();
@@ -45,6 +43,7 @@ function App() {
 
 	useEffect(() => {
 		checkAuth();
+
 	}, [checkAuth]);
 
 	if (isCheckingAuth) return <LoadingSpinner />;
