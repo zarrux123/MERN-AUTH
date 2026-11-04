@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 export const generateTokenAndSetCookie = (res, userId) => {
-	const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
+	const token = jwt.sign({ userId }, 'sn2-fullstack-auth-practise-authentication-token', {
 		expiresIn: "7d",
 	});
 
