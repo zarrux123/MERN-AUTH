@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 export const generateTokenAndSetCookie = (res, userId) => {
-	const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
+	const token = jwt.sign({ userId }, 'sn2-fullstack-auth-practise-authentication-token', {
 		expiresIn: "7d",
 	});
 
@@ -9,7 +9,7 @@ export const generateTokenAndSetCookie = (res, userId) => {
 		httpOnly: true,
 		secure: process.env.NODE_ENV === "production",
 		sameSite: "strict",
-		maxAge: 7 * 24 * 60 * 60 * 1000,
+		maxAge: 7 * 24 * 60 * 60 * 1000, 
 	});
 
 	return token;

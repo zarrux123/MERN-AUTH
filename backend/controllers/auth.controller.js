@@ -12,6 +12,8 @@ import { User } from "../models/user.model.js";
 
 export const signup = async (req, res) => {
 	const { email, password, name } = req.body;
+	console.log( { email, password, name } );
+	
 
 	try {
 		if (!email || !password || !name) {
@@ -91,6 +93,7 @@ export const verifyEmail = async (req, res) => {
 
 export const login = async (req, res) => {
 	const { email, password } = req.body;
+	console.log( { email, password } );
 	try {
 		const user = await User.findOne({ email });
 		if (!user) {
